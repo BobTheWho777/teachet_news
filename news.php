@@ -34,20 +34,20 @@ $show_admin_btn = true;
 // Подключаем header
 include 'includes/header.php';
 ?>
-    <main class="container mx-auto px-4 py-8">
+    <main class="container mx-auto px-3 sm:px-4 py-6 sm:py-8">
         <!-- Хлебные крошки -->
-        <nav class="mb-6">
-            <ol class="flex items-center gap-2 text-sm text-gray-600">
+        <nav class="mb-4 sm:mb-6">
+            <ol class="flex items-center gap-1 sm:gap-2 text-xs sm:text-sm text-gray-600 flex-wrap">
                 <li>
                     <a href="index.php" class="hover:text-primary transition flex items-center gap-1">
-                        <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <svg class="w-3.5 h-3.5 sm:w-4 sm:h-4 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 12l2-2m0 0l7-7 7 7M5 10v10a1 1 0 001 1h3m10-11l2 2m-2-2v10a1 1 0 01-1 1h-3m-6 0a1 1 0 001-1v-4a1 1 0 011-1h2a1 1 0 011 1v4a1 1 0 001 1m-6 0h6"></path>
                         </svg>
-                        Главная
+                        <span class="hidden xs:inline">Главная</span>
                     </a>
                 </li>
                 <li>
-                    <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <svg class="w-3 h-3 sm:w-4 sm:h-4 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                         <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"></path>
                     </svg>
                 </li>
@@ -55,11 +55,11 @@ include 'includes/header.php';
                     <a href="index.php" class="hover:text-primary transition">Новости</a>
                 </li>
                 <li>
-                    <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <svg class="w-3 h-3 sm:w-4 sm:h-4 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                         <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"></path>
                     </svg>
                 </li>
-                <li class="text-gray-800 font-medium truncate max-w-md">
+                <li class="text-gray-800 font-medium truncate max-w-[150px] sm:max-w-xs md:max-w-md">
                     <?php echo htmlspecialchars($newsItem['title']); ?>
                 </li>
             </ol>
@@ -70,24 +70,24 @@ include 'includes/header.php';
             <?php if ($newsItem['image']): ?>
                 <img src="<?php echo htmlspecialchars($newsItem['image']); ?>"
                      alt="<?php echo htmlspecialchars($newsItem['title']); ?>"
-                     class="w-full h-64 md:h-96 object-cover">
+                     class="w-full h-48 sm:h-64 md:h-96 object-cover">
             <?php else: ?>
-                <div class="w-full h-64 md:h-96 bg-gradient-to-br from-primary to-accent flex items-center justify-center">
-                    <svg class="w-32 h-32 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <div class="w-full h-48 sm:h-64 md:h-96 bg-gradient-to-br from-primary to-accent flex items-center justify-center">
+                    <svg class="w-16 h-16 sm:w-24 sm:h-24 md:w-32 md:h-32 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                         <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 20H5a2 2 0 01-2-2V6a2 2 0 012-2h10a2 2 0 012 2v1m2 13a2 2 0 01-2-2V7m2 13a2 2 0 002-2V9a2 2 0 00-2-2h-2m-4-3H9M7 16h6M7 8h6v4H7V8z"></path>
                     </svg>
                 </div>
             <?php endif; ?>
 
-            <div class="p-8">
+            <div class="p-4 sm:p-6 md:p-8">
                 <!-- Мета-информация -->
-                <div class="flex flex-wrap items-center justify-between mb-6 pb-6 border-b border-gray-200">
-                    <div class="flex flex-wrap items-center gap-3 mb-3 md:mb-0">
-                        <span class="px-4 py-2 text-sm font-semibold rounded <?php echo $categoryColors[$newsItem['category']] ?? 'bg-gray-100 text-gray-800'; ?>">
+                <div class="flex flex-wrap items-center justify-between mb-4 sm:mb-6 pb-4 sm:pb-6 border-b border-gray-200 gap-3">
+                    <div class="flex flex-wrap items-center gap-2 sm:gap-3">
+                        <span class="px-2 sm:px-4 py-1 sm:py-2 text-xs sm:text-sm font-semibold rounded <?php echo $categoryColors[$newsItem['category']] ?? 'bg-gray-100 text-gray-800'; ?>">
                             <?php echo htmlspecialchars($newsItem['category']); ?> важность
                         </span>
-                        <span class="text-gray-500 flex items-center gap-1">
-                            <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <span class="text-gray-500 flex items-center gap-1 text-xs sm:text-sm">
+                            <svg class="w-3.5 h-3.5 sm:w-4 sm:h-4 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z"></path>
                             </svg>
                             <?php echo date('d.m.Y в H:i', strtotime($newsItem['published_at'])); ?>
@@ -96,19 +96,19 @@ include 'includes/header.php';
                 </div>
 
                 <!-- Заголовок -->
-                <h2 class="text-2xl md:text-3xl font-bold text-gray-800 mb-6">
+                <h2 class="text-xl sm:text-2xl md:text-3xl font-bold text-gray-800 mb-4 sm:mb-6 leading-snug">
                     <?php echo htmlspecialchars($newsItem['title']); ?>
                 </h2>
 
                 <!-- Контент -->
-                <div class="prose max-w-none text-gray-700 leading-relaxed text-base">
+                <div class="prose prose-sm sm:prose max-w-none text-gray-700 leading-relaxed text-sm sm:text-base">
                     <?php echo nl2br(htmlspecialchars($newsItem['content'])); ?>
                 </div>
 
                 <!-- Кнопка назад -->
-                <div class="mt-8 pt-6 border-t border-gray-200">
-                    <a href="index.php" class="inline-flex items-center text-primary hover:text-primary-light transition font-medium">
-                        <svg class="w-5 h-5 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <div class="mt-6 sm:mt-8 pt-4 sm:pt-6 border-t border-gray-200">
+                    <a href="index.php" class="inline-flex items-center text-primary hover:text-primary-light transition font-medium text-sm sm:text-base">
+                        <svg class="w-4 h-4 sm:w-5 sm:h-5 mr-1 sm:mr-2 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 19l-7-7m0 0l7-7m-7 7h18"></path>
                         </svg>
                         Назад к новостям
